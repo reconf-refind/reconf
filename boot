@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // reconf [0.0.1-alpha]
 // reconf bootstrapper by isoextension
 
@@ -10,9 +12,9 @@ import generateDump from './lib/utils/dump.js'
 import constants from './lib/utils/constants.js'
 const VERSION = constants.VERSION
 
-for (const [key, value] of Object.entries(constants)) {
+/* for (const [key, value] of Object.entries(constants)) {
     globalThis[key] = value;
-}
+} */
 
 process.on("uncaughtException", (err) => {
     let type
@@ -52,12 +54,13 @@ process.on("uncaughtException", (err) => {
                 break
         }
     }
-    console.log('[reconf][v0.0.1]')
+    console.log(`[reconf][${version}]`)
+    console.log(`[reconf][${version}]`.length)
     if (severity >= 4) {
-        console.log(`[alpha CRASH   ]`)
+        console.log(`[      CRASH   ]`)
         process.exitCode = 2
     } else {
-        console.log(`[alpha ERROR   ]`)
+        console.log(`[      ERROR   ]`)
         process.exitCode = 1
     }
     console.log(`[   ${new Date().toLocaleTimeString(undefined, localeOptions.time.secondsTwoDigit)}   ]`)
