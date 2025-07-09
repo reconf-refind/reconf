@@ -1,0 +1,19 @@
+{
+  "name": "reconf",
+  "version": "0.0.1-alpha",
+  "description": "a configuration tui for refind!",
+  "keywords": [
+    "refind"
+  ],
+  "license": "ISC",
+  "author": "isoextdev",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo hello world",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "blessed": "^0.1.81"
+  }
+}
