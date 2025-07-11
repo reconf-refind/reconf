@@ -10,10 +10,6 @@ import generateDump from './lib/utils/dump.js'
 import constants from './lib/utils/constants.js'
 const VERSION = constants.VERSION
 
-for (const [key, value] of Object.entries(constants)) {
-    globalThis[key] = value;
-}
-
 process.on("uncaughtException", (err) => {
     let type
     let severity
@@ -21,7 +17,7 @@ process.on("uncaughtException", (err) => {
     const debug = args.includes('-d') || args.includes('--debug')
     console.clear()
     if (!verbose) {
-        switch(err.name) {
+        switch (err.name) {
             case 'Error':
                 type = "generic error"
                 severity = 1
