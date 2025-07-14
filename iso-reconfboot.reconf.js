@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // reconf [0.0.1-alpha]
 // reconf bootstrapper by isoextension 'iso-reconfboot'
 // uses new .reconf extension
@@ -5,7 +6,7 @@
 // import main from "./lib/main/main.js"
 // ^ THIS IS COMMENTED FOR DEBUG PURPOSES
 const args = process.argv.slice(2);
-import TtyError from './lib/utils/TtyError.js'
+import TtyError from './lib/other/TtyError.js'
 import localeOptions from './lib/other/LocaleOptions.js';
 import generateDump from './lib/utils/dump.js'
 import constants from './lib/utils/constants.js'
@@ -50,12 +51,12 @@ process.on("uncaughtException", (err) => {
                 break
         }
     }
-    console.log('[reconf][v0.0.1]')
+    console.log('[reconf][v0.0.1-alpha]')
     if (severity >= 4) {
-        console.log(`[    CRASH     ]`)
+        console.log(`[       CRASH        ]`)
         process.exitCode = 2
     } else {
-        console.log(`[alpha ERROR   ]`)
+        console.log(`[       ERROR        ]`)
         process.exitCode = 1
     }
     console.log(`[   ${new Date().toLocaleTimeString(undefined, localeOptions.time.secondsTwoDigit)}   ]`)
