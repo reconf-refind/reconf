@@ -23,7 +23,22 @@ npm install
 ```
 
 ⚠️ reconf doesn't work on linux, since it needs to read AND write to the ESP.
-i  don't panic for the write to esp, rEFInd's config is in the ESP.
+
+ⓘ  don't panic for the 'write to the ESP', rEFInd's config is in the ESP.
+
+## usage
+
+```bash
+sudo reconf [-Vd]
+```
+
    you will need to `sudo reconf` to correctly use `reconf`.
+
    do NOT `fakeroot reconf`, since reconf needs REAL root access to rw to the ESP.
+
 *esp stands for (u)Efi System Partition   where an uppercase letter is one of the letters of the abbreviation*
+
+---
+
+🧑‍💻 maintained by [`isoextdev`](https://github.com/isoextdev)
+🏢 under [`reconf-refind`](https://github.com/reconf-refind) org
