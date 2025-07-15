@@ -1,16 +1,18 @@
 #!/usr/bin/env node
-// reconf [0.0.1-alpha]
-// reconf bootstrapper by isoextension 'iso-reconfboot'
+// [reconf] 0.0.1-alpha
+// reconf bootstrapper 'iso-reconfboot'
+// AUTHOR: isoextension
 // uses new .reconf extension
 
-// import main from "./lib/main/main.js"
-// ^ THIS IS COMMENTED FOR DEBUG PURPOSES
-const args = process.argv.slice(2);
+import init from "./lib/main/main.js"
 import TtyError from './lib/other/TtyError.js'
 import localeOptions from './lib/other/LocaleOptions.js';
 import generateDump from './lib/utils/dump.js'
 import constants from './lib/utils/constants.js'
 const VERSION = constants.VERSION
+
+const args = process.argv.slice(2);
+const { stdin, stdout, stderr } = process
 
 process.on("uncaughtException", (err) => {
     let type
@@ -62,8 +64,8 @@ process.on("uncaughtException", (err) => {
     console.log(`[   ${new Date().toLocaleTimeString(undefined, localeOptions.time.secondsTwoDigit)}   ]`)
     console.log(`${verbose ? err.name : type}: ${err.message}`)
     const stack = err.stack.split('\n')
-    stack[0] = "↓ stack trace\x1b[37;1m"
     if (verbose || both) {
+        stack[0] = "↓ stack trace\x1b[38;2;211;211;211m"
         console.log((stack.join('\n') || 'no stack trace...'))
         process.stdout.write('\x1b[0m')
     }
@@ -75,18 +77,13 @@ process.on("uncaughtException", (err) => {
     process.exit()
 })
 
-const isTTY = {
-    stdin: process.stdin.isTTY,
-    stdout: process.stdout.isTTY,
-    stderr: process.stderr.isTTY
-};
-
-const { stdin, stdout, stderr } = isTTY
-
 const noTTYOverride = false
 // args.includes('-t') || args.includes('--no-tty')
-if (!noTTYOverride && !(isTTY.stdin && isTTY.stdout && isTTY.stderr)) {
+if (!noTTYOverride && !(stdin.isTTY && stdout.isTTY && stderr.isTTY)) {
     throw new TtyError('RECONF DOES NOT WORK IN PIPES!')
 } else if (stdin.isTTY) {
     stdin.setRawMode(true);
 }
+
+// app takes over
+init()
