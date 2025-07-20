@@ -41,4 +41,5 @@ sudo reconf [-Vd]
 ---
 
 🧑‍💻 maintained by [`isoextdev`](https://github.com/isoextdev)
+
 🏢 under [`reconf-refind`](https://github.com/reconf-refind) org
