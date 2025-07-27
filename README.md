@@ -22,9 +22,13 @@ cd reconf
 npm install
 ```
 
-⚠️ reconf doesn't work on linux, since it needs to read AND write to the ESP.
+⚠️ reconf doesn't work in MSDOS/NTOS (including Windows), since it needs to read AND write to the ESP.
 
 ⓘ  don't panic for the 'write to the ESP', rEFInd's config is in the ESP.
+
+reconf only works if refind is installed, so go and install that real quick
+
+refind itself also doesnt work if you are using legacy BIOS so no gui boot for bios
 
 ## usage
 
