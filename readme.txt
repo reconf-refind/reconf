@@ -1,7 +1,8 @@
 ALL FILES IN THIS DIRECTORY MUST BE:
 
-JSON(C,JSON5,JSONLINE)
-JS/COFFEE/TS 
+For branch master:
+JSON(C,5,JSONLINE)
+JS/TS 
 .reconf*
 *RC
 .*ignore
