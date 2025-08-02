@@ -1,0 +1,22 @@
+{
+  "name": "dark-theme",
+  "version": "1.0.0",
+  "type": "theme",
+  "main": "dark-theme.js",
+  "description": "Dark theme for reconf TUI with green accents",
+  "author": "isoextdev",
+  "dependencies": [],
+  "config": {
+    "primary_color": "#1a1a1a",
+    "secondary_color": "#2d2d2d",
+    "accent_color": "#00ff00",
+    "text_color": "#ffffff",
+    "border_color": "#444444",
+    "selected_bg": "#333333",
+    "selected_fg": "#00ff00",
+    "error_color": "#ff4444",
+    "warning_color": "#ffaa00",
+    "success_color": "#44ff44"
+  },
+  "permissions": ["ui-modify"]
+}

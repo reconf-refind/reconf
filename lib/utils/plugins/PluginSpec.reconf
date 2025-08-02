@@ -1,0 +1,54 @@
+{
+  "name": "reconf-plugin-specification",
+  "version": "1.0.0",
+  "description": "Plugin format specification for reconf",
+  "spec": {
+    "format": "json",
+    "extension": ".reconf",
+    "required_fields": [
+      "name",
+      "version", 
+      "type",
+      "main"
+    ],
+    "optional_fields": [
+      "description",
+      "author",
+      "dependencies",
+      "config",
+      "permissions"
+    ],
+    "plugin_types": [
+      "theme",
+      "config-parser",
+      "ui-component",
+      "validator",
+      "exporter"
+    ]
+  },
+  "schema": {
+    "name": "string - unique plugin identifier",
+    "version": "string - semantic version (x.y.z)",
+    "type": "string - one of the supported plugin types",
+    "main": "string - path to main plugin file relative to plugin directory",
+    "description": "string - brief description of plugin functionality",
+    "author": "string - plugin author information",
+    "dependencies": "array - list of required dependencies",
+    "config": "object - plugin-specific configuration options",
+    "permissions": "array - required system permissions"
+  },
+  "example": {
+    "name": "dark-theme",
+    "version": "1.0.0",
+    "type": "theme",
+    "main": "theme.js",
+    "description": "Dark theme for reconf TUI",
+    "author": "isoextdev",
+    "dependencies": [],
+    "config": {
+      "primary_color": "#1a1a1a",
+      "accent_color": "#00ff00"
+    },
+    "permissions": ["ui-modify"]
+  }
+}

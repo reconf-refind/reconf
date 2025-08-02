@@ -1,0 +1,69 @@
+{
+  "name": "refind-validator",
+  "version": "1.0.0",
+  "type": "validator",
+  "main": "refind-validator.js",
+  "description": "Validates rEFInd configuration files for syntax and common issues",
+  "author": "isoextdev",
+  "dependencies": [],
+  "config": {
+    "validation_rules": {
+      "required_sections": ["global"],
+      "valid_boot_options": [
+        "timeout",
+        "default_selection",
+        "hideui",
+        "icons_dir",
+        "banner",
+        "selection_big",
+        "selection_small",
+        "font",
+        "textonly",
+        "resolution",
+        "use_graphics_for",
+        "scanfor",
+        "uefi_deep_legacy_scan",
+        "scan_delay",
+        "also_scan_dirs",
+        "dont_scan_dirs",
+        "dont_scan_files",
+        "windows_recovery_files",
+        "max_tags",
+        "enable_and_lock_vmx",
+        "spoof_osx_version",
+        "csr_values",
+        "include"
+      ],
+      "valid_hideui_options": [
+        "banner",
+        "label",
+        "singleuser",
+        "safemode",
+        "hwtest",
+        "arrows",
+        "hints",
+        "editor",
+        "badges",
+        "all"
+      ],
+      "valid_scanfor_options": [
+        "internal",
+        "external",
+        "optical",
+        "netboot",
+        "hdbios",
+        "biosexternal",
+        "cd",
+        "manual"
+      ]
+    },
+    "severity_levels": {
+      "missing_required": "error",
+      "invalid_option": "error",
+      "deprecated_option": "warning",
+      "performance_issue": "warning",
+      "security_concern": "warning"
+    }
+  },
+  "permissions": ["config-modify"]
+}
